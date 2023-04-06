@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Android 12 引入了 BLUETOOTH_SCAN、BLUETOOTH_ADVERTISE 和 BLUETOOTH_CONNECT 权限，可让您的应用扫描附近的设备，而无需请求位置权限 -->
+    <!-- 3个权限都属于同一个权限组，只要申请一个权限，另外2个也就自动授权了 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" /> <!-- Needed only if your app makes the device discoverable to Bluetooth devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" /> <!-- Needed only if your app communicates with already-paired Bluetooth devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- Request legacy Bluetooth permissions on older devices. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" /> <!-- Android 12以下，如果应用需要扫描附近的蓝牙设备，需要在运行时申请定位权限 -->
+    <!-- Android 12以上，如果应用推到物理位置，也需要加上这个权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ble_server"
+        tools:targetApi="31">
+        <activity
+            android:name=".DeviceControlActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeviceListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BleClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BleServerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".BluetoothLeService"/>
+    </application>
+
+</manifest>

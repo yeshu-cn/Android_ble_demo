@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BleServerActivity">
+
+    <TextView
+        android:id="@+id/tv_read_messages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="read:"
+        android:textColor="#ff000000"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_write_messages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="write:"
+        android:textColor="#ff000000"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:padding="24dp"
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动服务" />
+</LinearLayout>
